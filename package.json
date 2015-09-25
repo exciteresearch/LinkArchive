@@ -23,5 +23,41 @@
   ],
   "cordovaPlatforms": [
     "android"
-  ]
+  ],
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exciteresearch/LinkArchive.git"
+  },
+  "keywords": [
+    "Link",
+    "Archive",
+    "Mobile",
+    "App",
+    "Archives",
+    "Links",
+    "Slack",
+    "PhoneGap",
+    "Cordova",
+    "Ionic",
+    "Angular",
+    "Slack",
+    "API",
+    "AWS",
+    "Mobile",
+    "SDK",
+    "iOS",
+    "Windows",
+    "Lambda",
+    "Gateway"
+  ],
+  "author": "Evan Lim, Ryan Bronz, DJ Nadgar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/exciteresearch/LinkArchive/issues"
+  },
+  "homepage": "https://github.com/exciteresearch/LinkArchive#readme"
 }
