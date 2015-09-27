@@ -21,20 +21,21 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function ($scope, $ionicSlideBoxDelegate) {
+.controller('AccountCtrl', function ($scope) {
   $scope.values = [ { greeting:'Hello!',
                     appearance: 'slides blue' },
                     { greeting: 'Bonjour!',
                     appearance: 'slides red' },
                     { greeting: 'Hi!',
-                    appearance: 'slides yellow' }];
+                    appearance: 'slides yellow' } ];
+
   $scope.cardDestroyed = function(index) {
-    $scope.values.splice(index, 1);
+    // $scope.values.splice(index, 1);
   };
 
   $scope.cardSwiped = function(index) {
-    var newCard = { greeting: 'Ohayo!', appearance: 'slides purple' }// new card data
-    $scope.values.push(newCard);
+    // var newCard = { greeting: 'Ohayo!', appearance: 'slides purple' };// new card data
+    // $scope.values.push(newCard);
   };
   // $scope.onSwipeRight = function (index) {
   //   $scope.values.splice(index, 1);
@@ -42,5 +43,5 @@ angular.module('starter.controllers', [])
   //   $ionicSlideBoxDelegate.slide(index);
     // $scope.values.push({ greeting: 'Swipe right works!', 
     //                      appearance: 'slides purple' });
-  }
+  //}
 });
