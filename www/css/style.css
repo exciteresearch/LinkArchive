@@ -1,1 +1,23 @@
 /* Empty. Add your own CSS if you like */
+
+.blue {
+	background-color: #4a87ee;
+}
+
+.red {
+	background-color: #ef4e3a;
+}
+
+.yellow {
+	background-color: #f0b840;
+}
+
+.purple {
+	background-color: #886aea;
+}
+
+.slides {
+	padding: 30%;
+	color: white;
+	text-align: center;	
+}

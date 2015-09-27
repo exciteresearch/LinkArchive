@@ -5,8 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic','starter.controllers','starter.services'])
 
+//'ionic.contrib.ui.tinderCards'
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -82,4 +83,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 
-});
+})
+
+// directive for making a block element fill the height of its container
+.directive('fillContent', function ($ionicScrollDelegate) {
+  return {
+      link: function ($scope, element, attrs)
+      {
+          element.ready(function () {
+              element[0].style.height = $ionicScrollDelegate.getScrollView().__clientHeight + 'px';
+          });   
+      }
+};});
