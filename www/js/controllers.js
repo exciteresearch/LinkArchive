@@ -37,11 +37,11 @@ angular.module('starter.controllers', [])
     // var newCard = { greeting: 'Ohayo!', appearance: 'slides purple' };// new card data
     // $scope.values.push(newCard);
   };
-  // $scope.onSwipeRight = function (index) {
-  //   $scope.values.splice(index, 1);
-  //   $ionicSlideBoxDelegate.update();
-  //   $ionicSlideBoxDelegate.slide(index);
+  $scope.onSwipeRight = function (index) {
+    // $scope.values.splice(index, 1);
+    // $ionicSlideBoxDelegate.update();
+    // $ionicSlideBoxDelegate.slide(index);
     // $scope.values.push({ greeting: 'Swipe right works!', 
     //                      appearance: 'slides purple' });
-  //}
+  };
 });
