@@ -520,7 +520,7 @@ angular.module("oauth.providers", ["oauth.utils"])
             },
 
             /*
-             * Sign into the Slack service - added by evan as a hack
+             * Sign into the Slack service - added by evan. Missing from Bower install
              *
              * @param    string clientId
              * @param    string clientSecret
@@ -529,8 +529,6 @@ angular.module("oauth.providers", ["oauth.utils"])
              * @return   promise
              */
             slack: function(clientId, clientSecret, appScope, options) {
-        
-                // continue testing each line here - 
                 var deferred = $q.defer();
                 if(window.cordova) {
                     var cordovaMetadata = cordova.require("cordova/plugin_list").metadata;
