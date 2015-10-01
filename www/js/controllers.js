@@ -1,6 +1,29 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordovaOauth'])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function ($scope, $http, $cordovaOauth) {
+  // testing oauth
+  $scope.slackResponse = 'no request made yet';
+  $scope.slackError = 'no errors yet';
+  $scope.authorize = function () {
+
+    // REMEMBER TO REMOVE THE CLIENT ID AND SECRETS!!!
+    // ***********************************************
+
+    // .then(function (result) {
+    //   $scope.slackResponse = JSON.stringify(result);
+    // }, function (error) {
+    //   $scope.slackError = error
+    // });
+    $scope.slackResponse = $cordovaOauth.slack('window.cordova','window.cordovont',2,3);
+
+    //   .then(function (result) {
+    //     $scope.slackResponse = JSON.stringify(result);
+    //   },
+    //   function (error) {
+    //     $scope.slackError = error;
+    //   });
+  };
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
