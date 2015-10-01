@@ -10,9 +10,9 @@ angular.module('starter.controllers', [])
     // ***********************************************
 
     // $cordovaOauth.slack('','',[])
-      // $cordovaOauth.github('GITHUB.clientID','GITHUB.clientSecret',[])
+    // $cordovaOauth.github('GITHUB.clientID','GITHUB.clientSecret',[])
 
-      $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'], null)
+    $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'], null)
     .then(function (result) {
         $scope.slackResponse = JSON.stringify(result);
     },
