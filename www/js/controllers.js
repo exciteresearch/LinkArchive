@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ngCordovaOauth'])
+angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function ($scope, $http, $cordovaOauth) {
   // testing oauth
