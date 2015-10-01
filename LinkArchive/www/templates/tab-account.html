@@ -1,0 +1,24 @@
+<ion-view view-title="Swipe Away!">
+  <ion-content>
+<!-- 	  <td-cards>
+		  <td-card ng-repeat="value in values"
+		  				on-destroy="cardDestroyed($index)" 
+		  				on-swipe="cardSwiped($index)">
+		  	<div class='ng-class: {{value.appearance}}'>
+		    	<hi>{{value.greeting}}</h1>
+		  	</div>
+		  </td-card>
+		</td-cards> -->
+		<ion-slide-box fill-content>
+			  <ion-slide ng-repeat="value in values">
+			    <div>
+			    	<h1 fill-content 
+			    	    on-swipe-right="onSwipeRight($index)"
+			    	    class='ng-class: {{value.appearance}}'>
+			    		{{$index}}: {{value.greeting}}
+			    	</h1>
+			    </div>
+			  </ion-slide>
+			</ion-slide-box>
+  </ion-content>
+</ion-view>
