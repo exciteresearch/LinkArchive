@@ -9,19 +9,13 @@ angular.module('starter.controllers', ['ngCordovaOauth'])
     // REMEMBER TO REMOVE THE CLIENT ID AND SECRETS!!!
     // ***********************************************
 
-    // .then(function (result) {
-    //   $scope.slackResponse = JSON.stringify(result);
-    // }, function (error) {
-    //   $scope.slackError = error
-    // });
-    $scope.slackResponse = $cordovaOauth.slack('window.cordova','window.cordovont',2,3);
-
-    //   .then(function (result) {
-    //     $scope.slackResponse = JSON.stringify(result);
-    //   },
-    //   function (error) {
-    //     $scope.slackError = error;
-    //   });
+    $cordovaOauth.slack('','',[])
+      .then(function (result) {
+        $scope.slackResponse = JSON.stringify(result);
+      },
+      function (error) {
+        $scope.slackError = error;
+      });
   };
 })
 
