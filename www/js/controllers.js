@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $cordovaOauth) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -39,6 +39,66 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+
+  // oauth opens in InAppBrowser
+  $scope.oauth = function(){
+
+    // $cordovaOauth.github(string clientId, string clientSecret, array appScope);
+    $scope.oauthResponse = 'no oauth request made yet';
+    $scope.oathError = 'no oath errors yet'; 
+    $cordovaOauth.github('1cb7b8d7bce9299eec38', '8df36b23b717ed6c51493423a8a6998031096b0a', [])
+    .then(function(results) {
+        // results
+        $scope.oathResponse = JSON.stringify(results);
+        console.log($scope.oathResponse);
+    }, function(error) {
+        // error
+        $scope.oauthError = error;
+        console.log($scope.oauthError);
+    });
+
+    // $scope.slackResponse = 'no request made yet';
+    // $scope.slackError = 'no errors yet';
+    // $scope.authorize = function () {
+
+    //   // REMEMBER TO REMOVE THE CLIENT ID AND SECRETS!!!
+    //   // ***********************************************
+
+    //   // $cordovaOauth.slack('','',[])
+    //   // $cordovaOauth.github('GITHUB.clientID','GITHUB.clientSecret',[])
+
+    //   $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'], null)
+    //   .then(function (result) {
+    //       $scope.slackResponse = JSON.stringify(result);
+    //   },
+    //   function (error) {
+    //       $scope.slackError = error;
+    //   });
+    // };
+
+
+    // var options = {
+    //   location: 'no',
+    //   clearcache: 'yes',
+    //   toolbar: 'no'
+    // };
+    
+    // $cordovaInAppBrowser.open('http://ngcordova.com', '_blank', options)
+      
+    //   .then(function(event) {
+    //     // success
+    //   })
+      
+    //   .catch(function(event) {
+    //     // error
+    //   });
+
+
+    //$cordovaInAppBrowser.close();
+
+  };
+
+
 })
 
 .controller('PlaylistsCtrl', function($scope) {
