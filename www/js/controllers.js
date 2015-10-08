@@ -62,9 +62,11 @@ angular.module('starter.controllers', [])
     }); */
 
     // $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'])
-    $cordovaOauth.slack('11489159555.11833280563', '37571dcc30254999017c109bb8ab8e6f', ['read'])
+    $cordovaOauth.slack('11489159555.11833280563', '37571dcc30254999017c109bb8ab8e6f', [])
     .then(function(results) {
-        // results success "access_token=2f4e96f228a1b65beddedac09b8ba3d9e6547083&scope=&token_type=bearer"
+        // results 
+        //Request token is 11489159555.12169638784.a4257f6b94&state=ngcordovaoauth
+        //console-via-logger.js:173 {"ok":true,"access_token":"xoxp-11489159555-11493121920-12168480423-d59857bfdc","scope":"identify,read,post","team_name":"linkarchive"}
         $scope.oathResponse = JSON.stringify(results);
         console.log($scope.oathResponse);
     }, function(error) {
