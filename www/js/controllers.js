@@ -42,13 +42,29 @@ angular.module('starter.controllers', [])
 
   // oauth opens in InAppBrowser
   $scope.oauth = function(){
+    //   // REMEMBER TO REMOVE THE CLIENT ID AND SECRETS!!!
+    //   // ***********************************************
 
-    // $cordovaOauth.github(string clientId, string clientSecret, array appScope);
     $scope.oauthResponse = 'no oauth request made yet';
     $scope.oathError = 'no oath errors yet'; 
-    $cordovaOauth.github('1cb7b8d7bce9299eec38', '8df36b23b717ed6c51493423a8a6998031096b0a', [])
+    // $cordovaOauth.github(string clientId, string clientSecret, array appScope);
+    // $cordovaOauth.github('GITHUB.clientID','GITHUB.clientSecret',[])
+    /*
+    $cordovaOauth.github('1cb7b8d7bce9299eec38', 'e2220ac47608b895314252218645de83930c30f8', [])
     .then(function(results) {
-        // results
+        // results success "access_token=2f4e96f228a1b65beddedac09b8ba3d9e6547083&scope=&token_type=bearer"
+        $scope.oathResponse = JSON.stringify(results);
+        console.log($scope.oathResponse);
+    }, function(error) {
+        // error
+        $scope.oauthError = error;
+        console.log($scope.oauthError);
+    }); */
+
+    // $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'])
+    $cordovaOauth.slack('11489159555.11833280563', '37571dcc30254999017c109bb8ab8e6f', ['read'])
+    .then(function(results) {
+        // results success "access_token=2f4e96f228a1b65beddedac09b8ba3d9e6547083&scope=&token_type=bearer"
         $scope.oathResponse = JSON.stringify(results);
         console.log($scope.oathResponse);
     }, function(error) {
@@ -56,25 +72,6 @@ angular.module('starter.controllers', [])
         $scope.oauthError = error;
         console.log($scope.oauthError);
     });
-
-    // $scope.slackResponse = 'no request made yet';
-    // $scope.slackError = 'no errors yet';
-    // $scope.authorize = function () {
-
-    //   // REMEMBER TO REMOVE THE CLIENT ID AND SECRETS!!!
-    //   // ***********************************************
-
-    //   // $cordovaOauth.slack('','',[])
-    //   // $cordovaOauth.github('GITHUB.clientID','GITHUB.clientSecret',[])
-
-    //   $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'], null)
-    //   .then(function (result) {
-    //       $scope.slackResponse = JSON.stringify(result);
-    //   },
-    //   function (error) {
-    //       $scope.slackError = error;
-    //   });
-    // };
 
 
     // var options = {
