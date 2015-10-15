@@ -62,7 +62,7 @@ angular.module('starter.controllers', [])
     }); */
 
     // $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'])
-    $cordovaOauth.slack('11489159555.11833280563', '37571dcc30254999017c109bb8ab8e6f', [])
+    $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', [])
     .then(function(results) {
         // results 
         //Request token is 11489159555.12169638784.a4257f6b94&state=ngcordovaoauth
@@ -97,6 +97,43 @@ angular.module('starter.controllers', [])
 
   };
 
+  // awsCognito from aws-sdk
+  $scope.awsCognito = function(){
+    // Initialize the Amazon Cognito credentials provider
+    AWS.config.region = 'XX-XXXX-X'; // Region
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: 'XX-XXXX-X:XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+    });
+
+    console.log('AWS.config.region=',AWS.config.region,
+      'AWS.config.credentials=',AWS.config.credentials);
+
+    // Initialize the Cognito Sync client
+    // AWS.config.credentials.get(function(){
+
+    //    var syncClient = new AWS.CognitoSyncManager();
+
+    //    syncClient.openOrCreateDataset('myDataset', function(err, dataset) {
+
+    //       dataset.put('myKey', 'myValue', function(err, record){
+
+    //          dataset.synchronize({
+
+    //             onSuccess: function(data, newRecords) {
+    //                   console.log('data=',data,
+    //                         'newRecords=',newRecords);
+
+    //             }
+
+    //          });
+
+    //       });
+         
+    //    });
+
+    // });
+
+  };
 
 })
 
