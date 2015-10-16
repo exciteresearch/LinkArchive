@@ -100,9 +100,9 @@ angular.module('starter.controllers', [])
   // awsCognito from aws-sdk
   $scope.awsCognito = function(){
     // Initialize the Amazon Cognito credentials provider
-    AWS.config.region = AWSCOGNITO.region; // Region
+    AWS.config.region = AWS_CONFIG.region; // Region
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: AWSCOGNITO.IdentityPoolId,
+        IdentityPoolId: AWS_CONFIG.IdentityPoolId,
     });
 
     console.log('AWS.config.region=',AWS.config.region,
