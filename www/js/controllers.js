@@ -62,7 +62,7 @@ angular.module('starter.controllers', [])
     }); */
 
     // $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'])
-    $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', [])
+    $cordovaOauth.slack(SLACK.clientID, SLACK.clientSecret, [])
     .then(function(results) {
         // results 
         //Request token is 11489159555.12169638784.a4257f6b94&state=ngcordovaoauth
@@ -100,9 +100,9 @@ angular.module('starter.controllers', [])
   // awsCognito from aws-sdk
   $scope.awsCognito = function(){
     // Initialize the Amazon Cognito credentials provider
-    AWS.config.region = 'XX-XXXX-X'; // Region
+    AWS.config.region = AWSCOGNITO.region; // Region
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: 'XX-XXXX-X:XXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+        IdentityPoolId: AWSCOGNITO.IdentityPoolId,
     });
 
     console.log('AWS.config.region=',AWS.config.region,
