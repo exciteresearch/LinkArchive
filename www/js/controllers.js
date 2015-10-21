@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $cordovaOauth) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $cordovaOauth, secretsFactory) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -8,6 +8,10 @@ angular.module('starter.controllers', [])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+
+  // ./www/js/factories.js is in .gitignore because of secretsFactory.keys
+  $scope.SLACK = secretsFactory.SLACK();
+  $scope.AWS_COGNITO = secretsFactory.AWS_COGNITO();
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -62,7 +66,7 @@ angular.module('starter.controllers', [])
     }); */
 
     // $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'])
-    $cordovaOauth.slack(SLACK.clientID, SLACK.clientSecret, [])
+    $cordovaOauth.slack($scope.SLACK.clientID, $scope.SLACK.clientSecret, [])
     .then(function(results) {
         // results 
         //Request token is 11489159555.12169638784.a4257f6b94&state=ngcordovaoauth
@@ -100,9 +104,9 @@ angular.module('starter.controllers', [])
   // awsCognito from aws-sdk
   $scope.awsCognito = function(){
     // Initialize the Amazon Cognito credentials provider
-    AWS.config.region = AWS_CONFIG.region; // Region
+    AWS.config.region = $scope.AWS_COGNITO.region; // Region
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: AWS_CONFIG.IdentityPoolId,
+        IdentityPoolId: $scope.AWS_COGNITO.IdentityPoolId,
     });
 
     console.log('AWS.config.region=',AWS.config.region,
