@@ -1,7 +1,7 @@
 {
-  "name": "myapp",
+  "name": "linkarchive",
   "version": "1.0.0",
-  "description": "myApp: An Ionic project",
+  "description": "LinkArchive: An Ionic project",
   "dependencies": {
     "aws-sdk": "^2.2.9",
     "gulp": "^3.5.6",
@@ -25,5 +25,41 @@
   ],
   "cordovaPlatforms": [
     "android"
-  ]
+  ],
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exciteresearch/LinkArchive.git"
+  },
+  "keywords": [
+    "Link",
+    "Archive",
+    "Mobile",
+    "App",
+    "Archives",
+    "Links",
+    "Slack",
+    "PhoneGap",
+    "Cordova",
+    "Ionic",
+    "Angular",
+    "Slack",
+    "API",
+    "AWS",
+    "Mobile",
+    "SDK",
+    "iOS",
+    "Windows",
+    "Lambda",
+    "Gateway"
+  ],
+  "author": "Ryan Bronz, Evan Lim, DJ Nadgar",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/exciteresearch/LinkArchive/issues"
+  },
+  "homepage": "https://github.com/exciteresearch/LinkArchive#readme"
 }
