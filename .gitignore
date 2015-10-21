@@ -4,4 +4,4 @@
 node_modules/
 platforms/
 plugins/
-www/secret/
+www/secret/keys.js
