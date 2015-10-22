@@ -51,26 +51,11 @@ angular.module('starter.controllers', [])
 
     $scope.oauthResponse = 'no oauth request made yet';
     $scope.oathError = 'no oath errors yet'; 
-    // $cordovaOauth.github(string clientId, string clientSecret, array appScope);
-    // $cordovaOauth.github('GITHUB.clientID','GITHUB.clientSecret',[])
-    /*
-    $cordovaOauth.github('1cb7b8d7bce9299eec38', 'e2220ac47608b895314252218645de83930c30f8', [])
-    .then(function(results) {
-        // results success "access_token=2f4e96f228a1b65beddedac09b8ba3d9e6547083&scope=&token_type=bearer"
-        $scope.oathResponse = JSON.stringify(results);
-        console.log($scope.oathResponse);
-    }, function(error) {
-        // error
-        $scope.oauthError = error;
-        console.log($scope.oauthError);
-    }); */
 
-    // $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', ['read'])
+    // $cordovaOauth.slack('SLACK.clientID', 'SLACK.clientSecret', [])
     $cordovaOauth.slack($scope.SLACK.clientID, $scope.SLACK.clientSecret, [])
     .then(function(results) {
-        // results 
-        //Request token is 11489159555.12169638784.a4257f6b94&state=ngcordovaoauth
-        //console-via-logger.js:173 {"ok":true,"access_token":"xoxp-11489159555-11493121920-12168480423-d59857bfdc","scope":"identify,read,post","team_name":"linkarchive"}
+        // results
         $scope.oathResponse = JSON.stringify(results);
         console.log($scope.oathResponse);
     }, function(error) {

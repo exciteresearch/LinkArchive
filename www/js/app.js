@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'ngCordovaOauth', 'starter.controllers'])
+angular.module('starter', ['ionic', 'ngCordova', 'ngCordovaOauth', 'starter.controllers','starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,7 +23,17 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngCordovaOauth', 'starter.cont
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+
   $stateProvider
+
+/*  
+  Ionic uses AngularUI Router which uses the concept of states
+  Learn more here: https://github.com/angular-ui/ui-router
+  Set up the various states which the app can be in.
+  Each state's controller can be found in controllers.js
+*/
+
+// setup an abstract state for directives
 
     .state('app', {
     url: '/app',
@@ -31,6 +41,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngCordovaOauth', 'starter.cont
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
+
+// each menu item has its own nav history stack:
 
   .state('app.search', {
     url: '/search',
