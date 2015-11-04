@@ -93,11 +93,14 @@ angular.module('starter.controllers', [])
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
         IdentityPoolId: $scope.AWS_COGNITO.IdentityPoolId,
     });
-
-    console.log('AWS.config.region=',AWS.config.region,
-      'AWS.config.credentials=',AWS.config.credentials);
-
     // Initialize the Cognito Sync client
+    AWS.config.credentials.get(function(err){
+      if(!err){
+        console.log('AWS.config.region=',AWS.config.region,
+        'AWS.config.credentials.identityId=',AWS.config.credentials.identityId);
+      }
+    });
+
     // AWS.config.credentials.get(function(){
 
     //    var syncClient = new AWS.CognitoSyncManager();
